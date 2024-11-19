@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -12,13 +11,50 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-    <title>Document</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            z-index: 1000;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .profile-container img {
+            width: 80%; 
+            max-width: 500px;
+            height: auto; 
+            border-radius: 45%;
+        }
+
+        .profile-container h1 {
+            font-size: 3rem; 
+        }
+        .profile-container .subheading {
+            font-size: 1.25rem;
+            color: gray;
+        }
+        footer {
+            margin-top: auto; 
+        }
+    </style>
+
+    <title>Personal Portfolio</title>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0">
         <!-- Navbar content -->
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h2 mx-3">icedew</span>
+            <a class="navbar-brand mb-0 h2 mx-3" href="./index.html">icedew</a>
             <span class="navbar-brand mb-0 h3 mx-3">|</span>
             <span class="navbar-brand mb-0 h1 mx-3">Personal Portfolio</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,5 +81,19 @@
             </div>
         </div>
     </nav>
+
+    <!-- Landing Page Content-->
+    <div class="container text-center mt-5 profile-container">
+        <img src="./assets/profile picture.png" alt="Profile Picture">
+        <div>
+            <h1 class="display-1">Joshua C. Macatunao</h1>
+            <p class="subheading">Data Enthusiast | BSIT Undergraduate @PUP - Manila</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 bg-dark text-light py-4">
+        <p>© 2024 Joshua Macatunao. All rights reserved.</p>
+    </footer>
 </body>
 </html>
