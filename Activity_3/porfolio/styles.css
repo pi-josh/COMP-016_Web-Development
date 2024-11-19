@@ -1,0 +1,116 @@
+<!-- Profile --->
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    z-index: 1000;
+}
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+.profile-container img {
+    width: 80%; 
+    max-width: 500px;
+    height: auto; 
+    border-radius: 45%;
+}
+
+.profile-container h1 {
+    font-size: 3rem; 
+}
+.profile-container .subheading {
+    font-size: 1.25rem;
+    color: gray;
+}
+
+<!-- Carousel --->
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+}
+
+.carousel-inner {
+    height: 450px;
+}
+
+<!-- Cards --->
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card {
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-body .btn {
+    width: auto;
+}            
+
+<!-- Skills --->
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+<!-- Contact Me--->
+.contact-form-container {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto; 
+}
+
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: auto; 
+}
