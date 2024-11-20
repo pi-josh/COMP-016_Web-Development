@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fruit Menu Selector</title>
+    </head>
+    <body>
+        <h1>Welcome to the Fruit Menu Selector!</h1><br>
+        <script>
+            // Create an array with fruits
+            const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+            let userChoice; // Variable to store the user's choice
+
+            do {
+                // Display the menu to the user
+                let menu = "Welcome to the Fruit Menu Selector!\nChoose a fruit by its number:\n";
+                for (let i = 0; i < fruits.length; i++) {
+                    menu += `${i + 1}. ${fruits[i]}\n`;
+                }
+
+                // Add the exit option
+                menu += `${fruits.length + 1}. Exit\n`;
+
+                userChoice = prompt(menu); // Ask the user for their choice
+
+                // Convert input to a number and process it
+                const choice = parseInt(userChoice);
+
+                // Use a switch statement to handle user choices
+                switch (choice) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    document.write(`<p>You selected: ${fruits[choice - 1]}<p><br>`);
+                    alert(`You selected: ${fruits[choice - 1]}`);
+                    break;
+                    case 6:
+                    document.write(`<p>Thank you for using the Fruit Menu Selector. Goodbye!<p><br>`);
+                    alert("Thank you for using the Fruit Menu Selector. Goodbye!");
+                    break;
+                    default:
+                    document.write(`<p>Invalid choice. Please enter a number between 1 and 6.<p><br>`);
+                    alert("Invalid choice. Please enter a number between 1 and 6.");
+                }
+            } while (userChoice !== "6"); // Exit the loop when the user chooses 6
+
+        </script>
+    </body>
+</html>
