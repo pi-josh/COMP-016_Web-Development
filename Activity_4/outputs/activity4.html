@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity #4 - JavaScript</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .result {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+        .header-details {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="container py-4">
+    <div class="header-details">
+        <h1>Joshua C. Macatunao</h1>
+        <p>BSIT 3-1N</p>
+        <p>COMP 016: Web Development</p>
+    </div>
+
+    <h1 class="text-center mb-5">Activity #4</h1>
+
+    <script>
+        // 1. Calculating Total Cost
+        const itemPrice = 50, quantity = 3;
+        const totalCost = itemPrice * quantity;
+        document.write(`
+            <p class="section-title">1. Calculating Total Cost</p>
+            <p>To calculate the total cost, multiply the item price (50) by the quantity (3).</p>
+            <div class="result">const itemPrice = 50, quantity = 3;<br>const totalCost = itemPrice * quantity;<br>Result: Total cost = ${totalCost}</div>
+            <p><strong>Explanation:</strong> The total cost is calculated by multiplying the price of each item by the number of items purchased. In this case, 50 * 3 = 150.</p>
+            <hr>
+        `);
+
+        // 2. Score Adjustment
+        const score = 85, bonusPoint = 15, penaltyPoints = 5;
+        const finalScore = score + bonusPoint - penaltyPoints;
+        document.write(`
+            <p class="section-title">2. Score Adjustment</p>
+            <p>Starting with a score of 85, receiving a bonus of 15 points and losing 5 points results in:</p>
+            <div class="result">const score = 85, bonusPoints = 15, penaltyPoints = 5;<br>const finalScore = score + bonusPoints - penaltyPoints;<br>Result: Final score = ${finalScore}</div>
+            <p><strong>Explanation:</strong> This demonstrates how a score can be adjusted by adding bonus points and subtracting penalty points. Here, 85 + 15 - 5 = 95.</p>
+            <hr>
+        `);
+
+        // 3. Temperature Conversion
+        const celsius = 30;
+        const fahrenheit = (celsius * 9/5) + 32;
+        document.write(`
+            <p class="section-title">3. Temperature Conversion</p>
+            <p>To convert 30°C to Fahrenheit, use the formula (Celsius * 9/5) + 32:</p>
+            <div class="result">const celsius = 30;<br>const fahrenheit = (celsius * 9/5) + 32;<br>Result: ${celsius}°C = ${fahrenheit}°F</div>
+            <p><strong>Explanation:</strong> The formula to convert Celsius to Fahrenheit is (Celsius * 9/5) + 32. By applying this formula to 30°C, we get 86°F.</p>
+            <hr>
+        `);
+
+        // 4. Inventory Management
+        const initialStock = 50, sold = 15, restocked = 20;
+        const finalStock = initialStock - sold + restocked;
+        document.write(`
+            <p class="section-title">4. Inventory Management</p>
+            <p>If you start with 50 items, sell 15, and restock with 20, your final stock is:</p>
+            <div class="result">const initialStock = 50, sold = 15, restocked = 20;<br>const finalStock = initialStock - sold + restocked;<br>Result: Final stock = ${finalStock}</div>
+            <p><strong>Explanation:</strong> The final stock is calculated by subtracting the number of items sold from the initial stock and adding the number of items restocked. Here, 50 - 15 + 20 = 55.</p>
+            <hr>
+        `);
+
+        // 5. Age Comparison
+        const userAge = 17, minAge = 18;
+        const accessAllowed = userAge >= minAge ? 'Access Granted' : 'Access Denied';
+        document.write(`
+            <p class="section-title">5. Age Comparison</p>
+            <p>If your age is 17 and the minimum age is 18, the message logged will be:</p>
+            <div class="result">const userAge = 17, minAge = 18;<br>const accessAllowed = userAge >= minAge ? 'Access Granted' : 'Access Denied';<br>Result: ${accessAllowed}</div>
+            <p><strong>Explanation:</strong> This code checks if the user's age is greater than or equal to the minimum age required. Since 17 is less than 18, the access is denied.</p>
+            <hr>
+        `);
+
+        // 6. Investment Growth with Monthly Contributions
+        const principal = 5000, monthlyContribution = 300, months = 12 * 5, annualRate = 0.06;
+        const totalContributions = monthlyContribution * months;
+        const interestAccrued = (principal + totalContributions) * (annualRate / 12) * months;
+        const totalBalance = principal + totalContributions + interestAccrued;
+        document.write(`
+            <p class="section-title">6. Investment Growth with Monthly Contributions</p>
+            <p>With an initial investment of $5000, monthly contributions of $300 for 5 years, and a 6% annual interest rate, the total balance is:</p>
+            <div class="result">const principal = 5000, monthlyContribution = 300, months = 12 * 5, annualRate = 0.06;<br>Result: Total balance = $${totalBalance.toFixed(2)}</div>
+            <p><strong>Explanation:</strong> This calculation demonstrates how monthly contributions and interest can grow over time. The final balance includes both contributions and interest accrued over 5 years.</p>
+            <hr>
+        `);
+
+        // 7. Distance Traveled with Varying Speeds
+        const speed1 = 20, time1 = 2, speed2 = 25, time2 = 1.5, speed3 = 15, distanceRemaining = 10;
+        const distance1 = speed1 * time1, distance2 = speed2 * time2, timeTaken = time1 + time2 + 0.5; // Adding break time of 0.5 hours
+        const totalDistance = distance1 + distance2 + distanceRemaining;
+        document.write(`
+            <p class="section-title">7. Distance Traveled with Varying Speeds</p>
+            <p>The total distance traveled with varying speeds and a break is:</p>
+            <div class="result">const speed1 = 20, time1 = 2, speed2 = 25, time2 = 1.5, speed3 = 15, distanceRemaining = 10;<br>Result: Total distance = ${totalDistance} km, Total time = ${timeTaken} hours</div>
+            <p><strong>Explanation:</strong> This example involves traveling at different speeds for different durations, with an added break time. The total distance is the sum of all distances traveled at each speed.</p>
+            <hr>
+        `);
+
+        // 8. Enhanced Game Scoring System
+        let baseScore = 800, levels = 7, levelBonus = 150, levelPenalty = 30, bonusThreshold = 1200, bonusPoints = 100;
+        let finalScoreGame = baseScore + (levels * (levelBonus - levelPenalty));
+
+        if (finalScoreGame >= bonusThreshold) {
+            finalScoreGame += bonusPoints;
+        }
+
+        document.write(`
+            <p class="section-title">8. Enhanced Game Scoring System</p>
+            <p>The final score after completing all levels and applying bonuses/penalties is:</p>
+            <div class="result">let baseScore = 800, levels = 7, levelBonus = 150, levelPenalty = 30, bonusThreshold = 1200, bonusPoints = 100;<br>
+            let finalScoreGame = baseScore + (levels * (levelBonus - levelPenalty));<br>
+            if (finalScoreGame >= bonusThreshold) {<br>
+            finalScoreGame += bonusPoints;<br>
+            }<br>
+            Result: Final score = ${finalScoreGame}</div>
+            <p><strong>Explanation:</strong> The score is calculated by starting with a base score of 800, then applying bonuses and penalties for each of the 7 levels. For each level, the player earns a bonus of 150 points but also loses 30 points as a penalty. If the final score exceeds the threshold of 1200, an additional bonus of 100 points is added. In this case, the final score is calculated as follows:</p>
+            <ul>
+                <li>Base Score = 800</li>
+                <li>Level Bonus = 150, Level Penalty = 30</li>
+                <li>Levels = 7</li>
+                <li>Bonus and Penalty for all levels = (150 - 30) * 7 = 120 * 7 = 840</li>
+                <li>Final Score before bonus = 800 + 840 = 1640</li>
+                <li>Since the final score is greater than 1200, bonus points of 100 are added.</li>
+                <li>Final Score = 1640 + 100 = ${finalScoreGame}</li>
+            </ul>
+            <hr>
+        `);
+
+
+        // 9. Comparative Age Analysis
+        const age1 = 25, age2 = 30, age3 = 22, age4 = 29;
+        const oldestAge = Math.max(age1, age2, age3, age4);
+        let oldestPerson = '';
+
+        if (oldestAge === age1) oldestPerson = 'Person 1 (25)';
+        if (oldestAge === age2) oldestPerson = 'Person 2 (30)';
+        if (oldestAge === age3) oldestPerson = 'Person 3 (22)';
+        if (oldestAge === age4) oldestPerson = 'Person 4 (29)';
+
+        const ageDiff1 = oldestAge - age1;
+        const ageDiff2 = oldestAge - age2;
+        const ageDiff3 = oldestAge - age3;
+        const ageDiff4 = oldestAge - age4;
+
+        document.write(`
+            <p class="section-title">9. Comparative Age Analysis</p>
+            <p>The oldest person is: ${oldestPerson} and they are:</p>
+            <div class="result">
+                const age1 = 25, age2 = 30, age3 = 22, age4 = 29;<br>
+                const oldestAge = Math.max(age1, age2, age3, age4);<br>
+                let oldestPerson = '';<br>
+                if (oldestAge === age1) oldestPerson = 'Person 1 (25)';<br>
+                if (oldestAge === age2) oldestPerson = 'Person 2 (30)';<br>
+                if (oldestAge === age3) oldestPerson = 'Person 3 (22)';<br>
+                if (oldestAge === age4) oldestPerson = 'Person 4 (29)';<br>
+                const ageDiff1 = oldestAge - age1;<br>
+                const ageDiff2 = oldestAge - age2;<br>
+                const ageDiff3 = oldestAge - age3;<br>
+                const ageDiff4 = oldestAge - age4;<br>
+                Result: Person 1 is ${ageDiff1} years younger than the oldest person.<br>
+                Person 2 is ${ageDiff2} years younger than the oldest person.<br>
+                Person 3 is ${ageDiff3} years younger than the oldest person.<br>
+                Person 4 is ${ageDiff4} years younger than the oldest person.<br>
+            </div>
+            <p><strong>Explanation:</strong> The oldest person is determined using the Math.max() function, which finds the highest age among the four given ages. The differences between the oldest person's age and the others are then calculated using simple subtraction, providing the number of years each person is younger than the oldest.</p>
+            <hr>
+        `);
+    </script>
+
+    <!-- 10. Dynamic Countdown Timer with Complex Conditions --> 
+    <script>
+        document.write(`
+        <p class="section-title">10. Dynamic Countdown Timer with Complex Conditions</p>
+        <p><strong>Explanation:</strong> Starting with a count of 50, the value is logged and manipulated according to the conditions:
+        <ul>
+            <li>If divisible by 5, the count is doubled.</li>
+            <li>If odd, 1 is subtracted.</li>
+            <li>Otherwise, the count is decremented by 1.</li>
+        </ul></p>`)
+    </script>
+    <div id="output"></div>
+    <script>
+        var count = 50;
+        var logCount = 0;
+        var outputDiv = document.getElementById("output");
+
+        while (count > 0 && logCount < 10) {
+            outputDiv.innerHTML += count + "<br>";
+            logCount++;
+
+            if (count % 5 === 0) {
+                count *= 2;
+            } else if (count % 2 === 1) {
+                count -= 1;
+            } else {
+                count -= 1;
+            }
+        }
+        outputDiv.innerHTML += "Total times logged: " + logCount;
+    </script>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 Joshua C. Macatunao. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
