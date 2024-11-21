@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Age</title>
+</head>
+    <body>
+        <h1>Age Checker</h1>
+        <script>
+            function checkAge(age) {
+                let message;
+
+                // Return message based on age conditions
+                if (age < 13) {
+                    message = "You are a child.";
+                } else if (age >= 13 && age <= 19) {
+                    message = "You are a teenager.";
+                } else if (age >= 20 && age <= 64) {
+                    message = "You are an adult.";
+                } else if (age >= 65) {
+                    message = "You are a senior.";
+                } else {
+                    message = "Please enter a valid age.";
+                }
+
+                document.write(`<p>Your entered age: ${age}</p>`);
+                document.write(`<p>${message}</p>`); // Output the message to the document
+                return message;
+            }
+
+            let userAge;
+            do {
+                userAge = prompt("Enter your age:");
+                if (isNaN(userAge) || userAge === null || userAge.trim() === "") {
+                    alert("Invalid input. Please enter a valid number.");
+                } else {
+                    userAge = Number(userAge);
+                    break;
+                }
+            } while (true);
+
+            const result = checkAge(userAge);
+            alert(result); // Show the result in an alert
+        </script>
+    </body>
+</html>

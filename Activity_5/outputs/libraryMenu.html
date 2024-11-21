@@ -10,70 +10,82 @@
     <script>
         // Create an array with book titles
         const books = ["Atomic Habits", "The Subtle Art of Not Giving a F*ck", "Deep Work", "Everything is F*cked", "Pride and Prejudice"];
-        let userChoice; // Variable to store the user's choice
+        let continueProgram = true; // Variable to track if the user wants to continue
 
         do {
-        // Display the menu to the user
-        let menu = "Library Menu:\n";
-        menu += "1. View all books\n";
-        menu += "2. Add a new book\n";
-        menu += "3. Remove a book\n";
-        menu += "4. Exit\n";
+            // Display the menu to the user
+            let menu = "Library Menu:\n";
+            menu += "1. View all books\n";
+            menu += "2. Add a new book\n";
+            menu += "3. Remove a book\n";
+            menu += "4. Exit\n";
 
-        userChoice = prompt(menu); // Ask the user for their choice
-        const choice = parseInt(userChoice); // Convert input to a number
+            const userChoice = prompt(menu); // Ask the user for their choice
+            const choice = parseInt(userChoice); // Convert input to a number
 
-        switch (choice) {
-            case 1: // View all books
-            if (books.length === 0) {
-                document.write(`<p>The library is empty.</p><br>`);
-                alert("The library is empty.");
-            } else {
-                document.write(`<p>Books in the library:</p><br>`);
-                let bookList = "Books in the library:\n";
-                for (let i = 0; i < books.length; i++) {
-                    document.write(`<p>${i + 1}. ${books[i]}</p><br>`);
-                    bookList += `${i + 1}. ${books[i]}\n`;
+            switch (choice) {
+                case 1: // View all books
+                    if (books.length === 0) {
+                        document.write(`<p>The library is empty.</p><br>`);
+                        alert("The library is empty.");
+                    } else {
+                        let bookListHTML = "<ol>"; // Start ordered list
+                        for (let i = 0; i < books.length; i++) {
+                            bookListHTML += `<li>${books[i]}</li>`; // Add each book as a list item
+                        }
+                        bookListHTML += "</ol>"; // Close ordered list
+
+                        document.write(`<p>Books in the library:</p>${bookListHTML}<br>`); // Display list on page
+                        alert(`Books in the library:\n${books.join("\n")}`); // Show list in alert
+                    }
+                    break;
+                    
+                case 2: // Add a new book
+                    const newBook = prompt("Enter the title of the new book:");
+                    if (newBook) {
+                        books.push(newBook);
+                        document.write(`<p>"${newBook}" has been added to the library.</p><br>`);
+                        alert(`"${newBook}" has been added to the library.`);
+                    } else {
+                        document.write(`<p>No book title was entered.</p><br>`);
+                        alert("No book title was entered.");
+                    }
+                    break;
+
+                case 3: // Remove a book
+                    const bookToRemove = prompt("Enter the title of the book to remove:");
+                    const index = books.indexOf(bookToRemove);
+                    if (index !== -1) {
+                        books.splice(index, 1);
+                        document.write(`<p>"${bookToRemove}" has been removed from the library.</p><br>`);
+                        alert(`"${bookToRemove}" has been removed from the library.`);
+                    } else {
+                        document.write(`<p>"${bookToRemove}" is not in the library.</p><br>`);
+                        alert(`"${bookToRemove}" is not in the library.`);
+                    }
+                    break;
+
+                case 4: // Exit
+                    document.write(`<p>Thank you for using the Library Menu. Goodbye!</p><br>`);
+                    alert("Thank you for using the Library Menu. Goodbye!");
+                    continueProgram = false; // Exit the loop
+                    break;
+
+                default: // Handle invalid choices
+                    document.write(`<p>Invalid choice. Please enter a number between 1 and 4.</p><br>`);
+                    alert("Invalid choice. Please enter a number between 1 and 4.");
+            }
+
+            // Ask if the user wants to continue, only if they haven't chosen to exit
+            if (continueProgram) {
+                const continueResponse = prompt("Do you want to continue? (yes/no)").toLowerCase();
+                if (continueResponse === "no") {
+                    alert("Thank you for using the Library Menu. Goodbye!");
+                    document.write(`<p>Thank you for using the Library Menu. Goodbye!</p><br>`);
+                    continueProgram = false; // Exit the loop
                 }
-                alert(bookList);
             }
-            break;
-
-            case 2: // Add a new book
-            const newBook = prompt("Enter the title of the new book:");
-            if (newBook) {
-                books.push(newBook);
-                document.write(`<p>"${newBook}" has been added to the library.</p><br>`);
-                alert(`"${newBook}" has been added to the library.`);
-            } else {
-                document.write(`<p>No book title was entered.</p><br>`);
-                alert("No book title was entered.");
-            }
-            break;
-
-            case 3: // Remove a book
-            const bookToRemove = prompt("Enter the title of the book to remove:");
-            const index = books.indexOf(bookToRemove);
-            if (index !== -1) {
-                books.splice(index, 1);
-                document.write(`<p>"${bookToRemove}" has been removed from the library.</p><br>`);
-                alert(`"${bookToRemove}" has been removed from the library.`);
-            } else {
-                document.write(`<p>"${bookToRemove}" is not in the library.</p><br>`)
-                alert(`"${bookToRemove}" is not in the library.`);
-            }
-            break;
-
-            case 4: // Exit
-            document.write(`<p>Thank you for using the Library Menu. Goodbye!</p><br>`)
-            alert("Thank you for using the Library Menu. Goodbye!");
-            break;
-
-            default: // Handle invalid choices
-            document.write(`<p>Invalid choice. Please enter a number between 1 and 4.</p><br>`);
-            alert("Invalid choice. Please enter a number between 1 and 4.");
-        }
-        } while (userChoice !== "4"); // Exit the loop when the user chooses 4
+        } while (continueProgram); // Continue the loop if the user wants to
     </script>
     </body>
 </html>

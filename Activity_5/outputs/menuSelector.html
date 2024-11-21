@@ -11,6 +11,7 @@
             // Create an array with fruits
             const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
             let userChoice; // Variable to store the user's choice
+            let continueProgram = true; // Variable to track if the user wants to continue
 
             do {
                 // Display the menu to the user
@@ -34,19 +35,29 @@
                     case 3:
                     case 4:
                     case 5:
-                    document.write(`<p>You selected: ${fruits[choice - 1]}<p><br>`);
-                    alert(`You selected: ${fruits[choice - 1]}`);
-                    break;
+                        document.write(`<p>You selected: ${fruits[choice - 1]}<p><br>`);
+                        alert(`You selected: ${fruits[choice - 1]}`);
+                        break;
                     case 6:
-                    document.write(`<p>Thank you for using the Fruit Menu Selector. Goodbye!<p><br>`);
-                    alert("Thank you for using the Fruit Menu Selector. Goodbye!");
-                    break;
+                        document.write(`<p>Thank you for using the Fruit Menu Selector. Goodbye!<p><br>`);
+                        alert("Thank you for using the Fruit Menu Selector. Goodbye!");
+                        continueProgram = false; // Exit the loop
+                        break;
                     default:
-                    document.write(`<p>Invalid choice. Please enter a number between 1 and 6.<p><br>`);
-                    alert("Invalid choice. Please enter a number between 1 and 6.");
+                        document.write(`<p>Invalid choice. Please enter a number between 1 and 6.<p><br>`);
+                        alert("Invalid choice. Please enter a number between 1 and 6.");
                 }
-            } while (userChoice !== "6"); // Exit the loop when the user chooses 6
 
+                // Ask if the user wants to continue, only if they haven't chosen to exit
+                if (continueProgram) {
+                    const continueResponse = prompt("Do you want to continue? (yes/no)").toLowerCase();
+                    if (continueResponse === "no") {
+                        alert("Thank you for using the Fruit Menu Selector. Goodbye!");
+                        document.write(`<p>Thank you for using the Fruit Menu Selector. Goodbye!<p><br>`);
+                        continueProgram = false;
+                    }
+                }
+            } while (continueProgram); // Continue the loop if the user wants to
         </script>
     </body>
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Eligibility Checker</title>
+</head>
+    <body>
+        <h1>Voting Eligibility Checker</h1>
+        <script>
+            function checkVotingEligibility(age, isCitizen) {
+                // Check if age is a valid number
+                if (isNaN(age) || age < 0 || typeof age !== "number") {
+                    const message = "Please enter a valid age.";
+                    document.write(`<p>${message}</p>`);
+                    return message;
+                }
+
+                // Check if isCitizen is a boolean
+                if (typeof isCitizen !== "boolean") {
+                    const message = "Please specify your citizenship status.";
+                    document.write(`<p>${message}</p>`);
+                    return message;
+                }
+
+                // Voting eligibility conditions
+                let message;
+                if (age < 18) {
+                    message = `You entered age: ${age}. You are not eligible to vote.`;
+                } else if (age >= 18 && isCitizen === true) {
+                    message = `You entered age: ${age}. You are eligible to vote.`;
+                } else if (age >= 18 && isCitizen === false) {
+                    message = `You entered age: ${age} and not a citizen. You must be a citizen to vote.`;
+                }
+
+                document.write(`<p>${message}</p>`); // Output the message to the document
+                return message;
+            }
+
+            // Prompt user for age and validate input
+            let userAge;
+            do {
+                userAge = prompt("Enter your age:");
+                if (userAge === null) break; // Handle cancel
+            } while (isNaN(userAge) || userAge < 0 || userAge === "");
+
+            if (userAge !== null) {
+                // Convert age to a number
+                userAge = Number(userAge);
+
+                // Prompt user for citizenship status and validate input
+                let userCitizen;
+                do {
+                    const citizenInput = prompt("Are you a citizen? (yes or no):");
+                    if (citizenInput === null) break; // Handle cancel
+                    if (citizenInput.toLowerCase() === "yes") {
+                        userCitizen = true;
+                    } else if (citizenInput.toLowerCase() === "no") {
+                        userCitizen = false;
+                    }
+                } while (typeof userCitizen !== "boolean");
+
+                if (typeof userCitizen === "boolean") {
+                    // Call the function and get the result
+                    const result = checkVotingEligibility(userAge, userCitizen);
+
+                    // Alert the result
+                    alert(result);
+                } else {
+                    document.write("<p>You canceled the citizenship input.</p>");
+                }
+            } else {
+                document.write("<p>You canceled the age input.</p>");
+            }
+        </script>
+    </body>
+</html>
